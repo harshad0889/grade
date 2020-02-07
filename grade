@@ -1,0 +1,189 @@
+package com.example.grade;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    TextView et1;
+    TextView et2;
+    EditText et3;
+    EditText et4;
+    EditText et5;
+    Button b1;
+    int m1,m2,m3,tot,avg;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+       et1=findViewById(R.id.pl1);
+       et2=findViewById(R.id.pl2);
+       et3=findViewById(R.id.et3);
+       et4=findViewById(R.id.et4);
+       et5=findViewById(R.id.et5);
+       b1=findViewById(R.id.b1);
+
+
+
+       b1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               m1=Integer.parseInt(et3.getText().toString());
+               m2=Integer.parseInt(et4.getText().toString());
+               m3=Integer.parseInt(et5.getText().toString());
+
+               tot=m1+m2+m3;
+               avg=tot/3;
+
+
+               if(avg>80)
+               {
+                   Toast.makeText(MainActivity.this,"grade A",Toast.LENGTH_LONG).show();
+
+               }
+               else if (avg>60 && avg <80)
+               {
+                   Toast.makeText(MainActivity.this,"grade B",Toast.LENGTH_LONG).show();
+               }
+               else if(avg>40 && avg <60)
+               {
+                   Toast.makeText(MainActivity.this,"grade C",Toast.LENGTH_LONG).show();
+               }
+               else
+               {
+                   Toast.makeText(MainActivity.this,"grade D",Toast.LENGTH_LONG).show();
+               }
+
+           }
+       });
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//////////////
+///////////////
+'////////////
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/et5"
+        android:layout_width="91dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="55dp"
+        android:ems="10"
+        android:hint="mark3"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/et4"
+        app:layout_constraintTop_toBottomOf="@+id/et2" />
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="211dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="roll_no"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et1" />
+
+    <EditText
+        android:id="@+id/et3"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="256dp"
+        android:ems="10"
+        android:hint="mark1"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et4"
+        android:layout_width="91dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="55dp"
+        android:ems="10"
+        android:hint="mark2"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/et3"
+        app:layout_constraintTop_toBottomOf="@+id/et2" />
+
+    <TextView
+        android:id="@+id/pl2"
+        android:layout_width="113dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="roll_no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pl1" />
+
+    <TextView
+        android:id="@+id/pl1"
+        android:layout_width="120dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="81dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="75dp"
+        android:text="check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
